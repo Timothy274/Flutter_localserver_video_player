@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:localserver_video_player/Admin/Ac_Mgm.dart';
 import 'package:localserver_video_player/Admin/Folder_Mgm.dart';
+import 'package:localserver_video_player/Admin/Link_Http.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../login.dart';
@@ -18,7 +19,8 @@ class _Admin_HomeState extends State<Admin_Home> {
     if (prefs.getBool("isLogin")) {
       prefs.remove("isLogin");
     }
-    Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new Login()));
+    Navigator.of(context).push(
+        new MaterialPageRoute(builder: (BuildContext context) => new Login()));
   }
 
   Widget build(BuildContext context) {
@@ -34,7 +36,8 @@ class _Admin_HomeState extends State<Admin_Home> {
                         padding: const EdgeInsets.only(bottom: 40),
                         child: new Text(
                           "Admin Control",
-                          style: TextStyle(fontSize: 30.0, fontFamily: 'Poppins'),
+                          style:
+                              TextStyle(fontSize: 30.0, fontFamily: 'Poppins'),
                         ),
                         alignment: AlignmentDirectional.topCenter)
                   ],
@@ -53,7 +56,9 @@ class _Admin_HomeState extends State<Admin_Home> {
                             //   )
                             // );
                           },
-                          child: const Text('Account Request', style: TextStyle(fontSize: 20, fontFamily: 'Poppins')),
+                          child: const Text('Account Request',
+                              style: TextStyle(
+                                  fontSize: 20, fontFamily: 'Poppins')),
                         ))),
                 Container(
                     margin: const EdgeInsets.only(top: 30, bottom: 20),
@@ -63,9 +68,13 @@ class _Admin_HomeState extends State<Admin_Home> {
                         child: RaisedButton(
                           color: Color.fromRGBO(11, 189, 180, 1),
                           onPressed: () {
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new Ac_Mgm_Admin()));
+                            Navigator.of(context).push(new MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    new Ac_Mgm_Admin()));
                           },
-                          child: const Text('Account Management', style: TextStyle(fontSize: 20, fontFamily: 'Poppins')),
+                          child: const Text('Account Management',
+                              style: TextStyle(
+                                  fontSize: 20, fontFamily: 'Poppins')),
                         ))),
                 Container(
                     margin: const EdgeInsets.only(top: 30, bottom: 20),
@@ -75,9 +84,29 @@ class _Admin_HomeState extends State<Admin_Home> {
                         child: RaisedButton(
                           color: Color.fromRGBO(11, 189, 180, 1),
                           onPressed: () {
-                            Navigator.of(context).push(new MaterialPageRoute(builder: (BuildContext context) => new Folder_Mgm_Admin()));
+                            Navigator.of(context).push(new MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    new Link_Http()));
                           },
-                          child: const Text('Folder Management', style: TextStyle(fontSize: 20, fontFamily: 'Poppins')),
+                          child: const Text('Link HTTP',
+                              style: TextStyle(
+                                  fontSize: 20, fontFamily: 'Poppins')),
+                        ))),
+                Container(
+                    margin: const EdgeInsets.only(top: 30, bottom: 20),
+                    padding: const EdgeInsets.only(left: 20, right: 20),
+                    child: new SizedBox(
+                        width: double.infinity,
+                        child: RaisedButton(
+                          color: Color.fromRGBO(11, 189, 180, 1),
+                          onPressed: () {
+                            Navigator.of(context).push(new MaterialPageRoute(
+                                builder: (BuildContext context) =>
+                                    new Folder_Mgm_Admin()));
+                          },
+                          child: const Text('Folder Management',
+                              style: TextStyle(
+                                  fontSize: 20, fontFamily: 'Poppins')),
                         ))),
                 Container(
                     margin: const EdgeInsets.only(top: 30, bottom: 20),
@@ -89,7 +118,9 @@ class _Admin_HomeState extends State<Admin_Home> {
                           onPressed: () {
                             logout();
                           },
-                          child: const Text('Log Out', style: TextStyle(fontSize: 20, fontFamily: 'Poppins')),
+                          child: const Text('Log Out',
+                              style: TextStyle(
+                                  fontSize: 20, fontFamily: 'Poppins')),
                         ))),
               ]),
             )));
